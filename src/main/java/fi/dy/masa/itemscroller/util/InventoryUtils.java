@@ -124,7 +124,7 @@ public class InventoryUtils
                      ((ClientPlayerEntity) player).getRecipeBook().contains(recipe)))
                 {
                     inventoryCraftResult.setLastRecipe(recipe);
-                    stack = recipe.craft(craftMatrix);
+                    stack = recipe.craft(craftMatrix, MinecraftClient.getInstance().getNetworkHandler().getRegistryManager());
                 }
 
                 if (setEmptyStack || stack.isEmpty() == false)

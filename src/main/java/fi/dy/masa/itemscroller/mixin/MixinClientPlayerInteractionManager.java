@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
-import net.minecraft.network.Packet;
+import net.minecraft.network.packet.Packet;
 import fi.dy.masa.itemscroller.util.ClickPacketBuffer;
 
 @Mixin(ClientPlayerInteractionManager.class)
