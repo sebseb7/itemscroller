@@ -303,11 +303,9 @@ public class RenderEventHandler
             stack = stack.copy();
             InventoryUtils.setStackSize(stack, 1);
 
-            MatrixStack matrixStack = RenderSystem.getModelViewStack();
-            matrixStack.push();
+            MatrixStack matrixStack = new MatrixStack();
             matrixStack.translate(0, 0, 100.f);
             this.mc.getItemRenderer().renderInGui(matrixStack, stack, x, y);
-            matrixStack.pop();
         }
     }
 
