@@ -2,6 +2,7 @@ package fi.dy.masa.itemscroller.util;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import javax.annotation.Nonnull;
 import net.minecraft.item.ItemStack;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -58,7 +59,7 @@ public class ItemType
                 return false;
             }
 
-            return ItemStack.areNbtEqual(this.stack, other.stack);
+            return Objects.equals(this.stack, other.stack);
         }
     }
 

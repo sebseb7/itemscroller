@@ -1,5 +1,6 @@
 package fi.dy.masa.itemscroller.mixin;
 
+import net.minecraft.inventory.RecipeInputInventory;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,7 +17,7 @@ import fi.dy.masa.itemscroller.util.InventoryUtils;
 @Mixin(net.minecraft.screen.CraftingScreenHandler.class)
 public abstract class MixinCraftingScreenHandler
 {
-    @Shadow @Final private net.minecraft.inventory.CraftingInventory input;
+    @Shadow @Final private net.minecraft.inventory.RecipeInputInventory input;
     @Shadow @Final private net.minecraft.inventory.CraftingResultInventory result;
     @Shadow @Final private net.minecraft.entity.player.PlayerEntity player;
 
@@ -28,13 +29,13 @@ public abstract class MixinCraftingScreenHandler
 
     @Inject(method = "updateResult", at = @At("RETURN"))
     private static void onUpdateResult(
-            ScreenHandler screenHandler,
+            ScreenHandler handler,
             World world,
             PlayerEntity player,
-            CraftingInventory craftingInv,
-            CraftingResultInventory resultInv,
+            RecipeInputInventory craftingInventory,
+            CraftingResultInventory resultInventory,
             CallbackInfo ci)
     {
-        InventoryUtils.onSlotChangedCraftingGrid(player, craftingInv, resultInv);
+        InventoryUtils.onSlotChangedCraftingGrid(player, craftingInventory, resultInventory);
     }
 }
