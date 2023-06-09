@@ -59,7 +59,8 @@ public class ItemType
                 return false;
             }
 
-            return Objects.equals(this.stack, other.stack);
+            return true;
+			//Objects.equals(this.stack, other.stack);
         }
     }
 

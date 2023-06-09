@@ -2071,7 +2071,12 @@ public class InventoryUtils
 
     public static boolean areStacksEqual(ItemStack stack1, ItemStack stack2)
     {
-        return stack1.isEmpty() == false && ItemStack.areEqual(stack1, stack2);
+		if (stack1.isEmpty() == false && stack2.isEmpty() == false && stack1.getItem() == stack2.getItem()){
+			return true;
+		}else{
+			return false;
+		}
+        //return stack1.isEmpty() == false && ItemStack.areEqual(stack1, stack2);
     }
 
     private static boolean areSlotsInSameInventory(Slot slot1, Slot slot2)
